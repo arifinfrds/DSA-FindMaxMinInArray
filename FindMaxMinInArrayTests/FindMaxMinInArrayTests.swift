@@ -15,9 +15,14 @@ struct Program {
                 return []
             }
             return [value, value]
+        } else {
+            
+            let sortedArray = array.sorted()
+            guard let minValue = sortedArray.first, let maxValue = sortedArray.last else {
+                return []
+            }
+            return [minValue, maxValue]
         }
-        
-        return []
     }
 }
 
@@ -39,5 +44,14 @@ final class FindMaxMinInArrayTests: XCTestCase {
         let result = sut.findMaxMin(in: array)
         
         XCTAssertEqual(result, [1, 1])
+    }
+    
+    func test_findMaxMin_deliversMaxMinValueOn2ArrayItems() {
+        let array = [1, 2]
+        let sut = Program()
+        
+        let result = sut.findMaxMin(in: array)
+        
+        XCTAssertEqual(result, [1, 2])
     }
 }
