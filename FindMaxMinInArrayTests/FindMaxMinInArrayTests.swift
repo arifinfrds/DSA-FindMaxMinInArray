@@ -10,19 +10,49 @@ import XCTest
 struct Program {
     func findMaxMin(in array: [Int]) -> [Int] {
         
+        if array.isEmpty {
+            return []
+        }
+        
         if array.count == 1 {
             guard let value = array.first else {
                 return []
             }
             return [value, value]
         } else {
-            
-            let sortedArray = array.sorted()
-            guard let minValue = sortedArray.first, let maxValue = sortedArray.last else {
-                return []
-            }
-            return [minValue, maxValue]
+            return find(in: array)
         }
+    }
+    
+    private func find(in array: [Int]) -> [Int] {
+        return [
+            findMin(in: array),
+            findMax(in: array)
+        ]
+    }
+    
+    private func findMin(in array: [Int]) -> Int {
+        var minValue = array[0]
+        
+        for number in array {
+            if number < minValue {
+                minValue = number
+            }
+        }
+        
+        return minValue
+    }
+    
+    private func findMax(in array: [Int]) -> Int {
+        var maxValue = array[0]
+        
+        for number in array {
+            if number > maxValue {
+                maxValue = number
+            }
+        }
+        
+        return maxValue
     }
 }
 
