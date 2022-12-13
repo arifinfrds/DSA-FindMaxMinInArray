@@ -54,4 +54,13 @@ final class FindMaxMinInArrayTests: XCTestCase {
         
         XCTAssertEqual(result, [1, 2])
     }
+    
+    func test_findMaxMin_deliversMaxMinValueOn2ArrayItemsWhenArrayIsNotOrdered() {
+        let array = [2, 1]
+        let sut = Program()
+        
+        let result = sut.findMaxMin(in: array)
+        
+        XCTAssertEqual(result, [1, 2])
+    }
 }
