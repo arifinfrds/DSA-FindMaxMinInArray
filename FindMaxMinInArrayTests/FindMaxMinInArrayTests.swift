@@ -93,4 +93,13 @@ final class FindMaxMinInArrayTests: XCTestCase {
         
         XCTAssertEqual(result, [1, 2])
     }
+    
+    func test_findMaxMin_succeedsonLongArraySampleItems() {
+        let array = [199, 201, 300, 400, 500]
+        let sut = Program()
+        
+        let result = sut.findMaxMin(in: array)
+        
+        XCTAssertEqual(result, [199, 500])
+    }
 }
